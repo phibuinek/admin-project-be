@@ -40,6 +40,8 @@ export class AuthController {
   }
 
   @Post('register')
+  @Public()
+  // @UseGuards(LocalAuthGuard)
   register(@Body() registerDto: CreateAuthDto) {
     return this.authService.handleRegister(registerDto);
   }
