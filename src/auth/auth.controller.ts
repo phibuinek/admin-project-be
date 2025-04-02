@@ -53,6 +53,13 @@ export class AuthController {
     return this.authService.checkCode(codeAuthDto);
   }
 
+  @Post('retry-active')
+  @Public()
+  // @UseGuards(LocalAuthGuard)
+  retryActive(@Body('email') email: string) {
+    return this.authService.retryActive(email);
+  }
+
   @Get('mail')
   @Public()
   testMail() {
